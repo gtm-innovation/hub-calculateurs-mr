@@ -1,0 +1,619 @@
+<!-- Hub des calculateurs MoneyRadar — Landing / sommaire -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* ===== HUB CALCULATEURS MoneyRadar (v5) ===== */
+.mric-calc.v5{
+  --bg:#0A0E18;
+  --bg-2:#131A2F;
+  --bg-3:#1A2440;
+  --border:rgba(255,255,255,0.10);
+  --border-soft:rgba(255,255,255,0.06);
+  --fg:#FFFFFF;
+  --fg-2:#ECF0F8;
+  --fg-3:#B8C5DC;
+  --fg-4:#8C9AB5;
+  --teal:#00F5C0;
+  --teal-soft:rgba(0,245,192,0.10);
+  --orange:#FF9F43;
+  --red:#FF3B4E;
+  --purple:#A855F7;
+  --blue:#1060C4;
+  --gold:#FFD700;
+}
+.mric-calc.v5.light{
+  --bg:#FAFAF7;
+  --bg-2:#FFFFFF;
+  --bg-3:#F2F3EE;
+  --border:#E2E4DC;
+  --border-soft:#ECEEE7;
+  --fg:#0A0E18;
+  --fg-2:#1A1F2E;
+  --fg-3:#3A4154;
+  --fg-4:#6B7588;
+  --teal:#008C64;
+  --teal-soft:rgba(0,140,100,0.08);
+  --orange:#E27A1C;
+  --red:#E5253A;
+  --purple:#8B3FE0;
+  --blue:#0F58B0;
+  --gold:#B58900;
+}
+
+.mric-calc.v5,
+.mric-calc.v5 *,
+.mric-calc.v5 *::before,
+.mric-calc.v5 *::after{box-sizing:border-box}
+.mric-calc.v5{
+  background:var(--bg);
+  color:var(--fg-2);
+  font:16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-variant-numeric:tabular-nums;
+  container-type:inline-size;
+  width:100%;
+  padding:0;
+  margin:0;
+}
+.mric-calc.v5 :where(p){margin:0}
+.mric-calc.v5 :where(h1,h2,h3,h4){margin:0;color:var(--fg);font-weight:800;letter-spacing:-0.02em}
+.mric-calc.v5 a{color:var(--teal);text-decoration:none}
+.mric-calc.v5 a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+
+/* Layout container */
+.mric-calc.v5 .mric-wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.mric-calc.v5 .mric-hero{
+  position:relative;
+  padding:96px 0 64px;
+  text-align:center;
+  overflow:hidden;
+}
+.mric-calc.v5 .mric-hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,245,192,0.10), transparent 65%);
+  pointer-events:none;
+  z-index:0;
+}
+.mric-calc.v5.light .mric-hero::before{
+  background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,140,100,0.07), transparent 65%);
+}
+.mric-calc.v5 .mric-hero > *{position:relative;z-index:1}
+.mric-calc.v5 .mric-hero-logo{
+  height:48px;width:auto;display:inline-block;margin-bottom:44px;opacity:.95;
+}
+.mric-calc.v5.light .mric-hero-logo{filter:invert(1) hue-rotate(180deg);opacity:.88}
+.mric-calc.v5 .mric-hero h1{
+  font-size:clamp(28px,4.6vw,60px);
+  font-weight:800;
+  letter-spacing:-0.035em;
+  line-height:1.05;
+  margin-bottom:22px;
+  max-width:20ch;
+  margin-left:auto;margin-right:auto;
+  text-wrap:balance;
+}
+.mric-calc.v5 .mric-hero h1 .accent{
+  color:var(--teal);
+  filter:drop-shadow(0 0 32px rgba(0,245,192,0.22));
+}
+.mric-calc.v5.light .mric-hero h1 .accent{filter:none}
+.mric-calc.v5 .mric-hero-sub{
+  font-size:clamp(15px,1.4vw,18px);
+  line-height:1.55;
+  color:var(--fg-3);
+  max-width:60ch;
+  margin:0 auto;
+  text-wrap:pretty;
+}
+
+/* Mobile-only inline pills under hero (stacked + centered) */
+.mric-calc.v5 .mric-hero-pills{display:none}
+.mric-calc.v5 .mric-hero-pill{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:800;letter-spacing:0.20em;text-transform:uppercase;
+  color:var(--teal);line-height:1;
+}
+.mric-calc.v5 .mric-hero-pill svg{width:16px;height:16px;flex:0 0 16px}
+
+/* Pourquoi — 3 pills label-only (desktop) */
+.mric-calc.v5 .mric-pillars{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  border-top:1px solid var(--border-soft);
+  border-bottom:1px solid var(--border-soft);
+  margin-top:48px;
+}
+.mric-calc.v5 .mric-pillar{
+  padding:22px 28px;
+  border-right:1px solid var(--border-soft);
+  display:flex;align-items:center;justify-content:center;
+}
+.mric-calc.v5 .mric-pillar:last-child{border-right:0}
+.mric-calc.v5 .mric-pillar-label{
+  font-size:13px;font-weight:800;letter-spacing:0.20em;text-transform:uppercase;
+  color:var(--teal);
+  display:flex;align-items:center;gap:10px;
+  line-height:1;
+}
+.mric-calc.v5 .mric-pillar-label svg{width:18px;height:18px;flex:0 0 18px}
+
+/* Section header */
+.mric-calc.v5 .mric-section{padding:40px 0 24px}
+.mric-calc.v5 .mric-section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:24px;margin-bottom:36px;
+}
+.mric-calc.v5 .mric-section-head-l{flex:1;min-width:0}
+.mric-calc.v5 .mric-section h2{
+  font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-0.02em;
+  line-height:1.15;color:var(--fg);
+  max-width:24ch;text-wrap:balance;
+}
+
+/* Grouped layout */
+.mric-calc.v5 .mric-grp{
+  display:flex;flex-direction:column;gap:48px;
+}
+.mric-calc.v5 .mric-grp-block{
+  border-top:2px solid var(--cat-color,var(--teal));
+  padding-top:20px;
+}
+.mric-calc.v5 .mric-grp-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding-bottom:18px;
+  margin-bottom:18px;
+}
+.mric-calc.v5 .mric-grp-label{
+  font-size:14px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--cat-color,var(--teal));
+}
+.mric-calc.v5 .mric-grp-list{
+  display:flex;flex-direction:column;
+  border-top:1px solid var(--border-soft);
+}
+.mric-calc.v5 .mric-grp-list .mric-item-cat{display:none}
+
+/* List item */
+.mric-calc.v5 .mric-item{
+  display:grid;
+  grid-template-columns:56px 1fr auto auto;
+  align-items:center;
+  gap:20px;
+  padding:22px 4px;
+  border-bottom:1px solid var(--border-soft);
+  text-decoration:none;color:inherit;
+  position:relative;
+  transition:padding .18s, background .18s;
+}
+.mric-calc.v5 .mric-item:hover{
+  background:linear-gradient(90deg, transparent, var(--teal-soft) 80%, transparent);
+  padding-left:14px;padding-right:14px;
+  text-decoration:none;
+}
+.mric-calc.v5 .mric-item::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--cat-color,var(--teal));
+  opacity:0;
+  transition:opacity .18s;
+}
+.mric-calc.v5 .mric-item:hover::before{opacity:1}
+.mric-calc.v5 .mric-item-icon{
+  width:56px;height:56px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cat-color,var(--teal));
+  background:transparent;
+  border:0;
+  flex:0 0 56px;
+  transition:transform .18s;
+}
+.mric-calc.v5 .mric-item:hover .mric-item-icon{transform:scale(1.08)}
+.mric-calc.v5 .mric-item-icon svg{width:34px;height:34px}
+.mric-calc.v5 .mric-item-body{min-width:0}
+.mric-calc.v5 .mric-item-head{
+  display:flex;align-items:center;gap:12px;margin-bottom:4px;flex-wrap:wrap;
+}
+.mric-calc.v5 .mric-item-title{
+  font-size:17px;font-weight:700;letter-spacing:-0.015em;color:var(--fg);
+  line-height:1.25;
+}
+.mric-calc.v5 .mric-item-desc{
+  font-size:14px;line-height:1.5;color:var(--fg-3);
+  max-width:62ch;
+  text-wrap:pretty;
+}
+.mric-calc.v5 .mric-item-meta{
+  font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--fg-4);
+  white-space:nowrap;
+}
+.mric-calc.v5 .mric-item-arrow{
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--fg-4);
+  transition:color .18s, transform .18s;
+}
+.mric-calc.v5 .mric-item:hover .mric-item-arrow{color:var(--cat-color,var(--teal));transform:translateX(4px)}
+.mric-calc.v5 .mric-item-arrow svg{width:18px;height:18px}
+
+/* Lead magnet — Newsletter */
+.mric-calc.v5 .mric-lm-wrap{padding:96px 0 112px}
+.mric-calc.v5 .mric-lm{
+  background:transparent;
+  border:0;
+  border-top:1px solid var(--border-soft);
+  border-bottom:1px solid var(--border-soft);
+  border-radius:0;
+  padding:72px 24px 64px;
+  display:flex;flex-direction:column;gap:20px;
+  position:relative;
+  align-items:center;
+  text-align:center;
+  max-width:780px;
+  margin:0 auto;
+}
+.mric-calc.v5 .mric-lm::before{
+  content:"";position:absolute;
+  top:-1px;left:50%;width:120px;height:3px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg, var(--teal), var(--orange));
+}
+.mric-calc.v5 .mric-lm-head{
+  display:flex;align-items:center;gap:16px;
+  justify-content:center;
+}
+.mric-calc.v5 .mric-lm-icon{
+  width:52px;height:52px;
+  border-radius:12px;
+  background:transparent;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex:0 0 52px;
+  color:var(--teal);
+}
+.mric-calc.v5 .mric-lm-icon svg{width:26px;height:26px;color:var(--teal)}
+.mric-calc.v5 .mric-lm-title{
+  font-size:clamp(22px, 2.4vw, 28px);
+  font-weight:800;letter-spacing:-0.02em;color:var(--fg);
+  line-height:1.2;
+  text-wrap:balance;
+  max-width:24ch;
+}
+.mric-calc.v5 .mric-lm-title .lm-tag{color:var(--teal)}
+.mric-calc.v5 .mric-lm-title .lm-body{color:var(--fg)}
+.mric-calc.v5 .mric-lm-desc{
+  font-size:15.5px;line-height:1.6;color:var(--fg-3);
+  max-width:54ch;
+  text-wrap:pretty;
+}
+.mric-calc.v5 .mric-lm-desc strong{color:var(--fg-2);font-weight:700}
+.mric-calc.v5 .mric-lm-row{
+  display:flex;align-items:center;gap:14px;
+  flex-wrap:wrap;justify-content:center;
+  padding-top:12px;
+}
+.mric-calc.v5 .mric-lm-embed{
+  width:380px;max-width:100%;
+  display:flex;justify-content:center;
+}
+.mric-calc.v5 .mric-lm-embed iframe{
+  width:340px !important;height:62px !important;
+  max-width:100%;border:0;display:block;margin:0 auto;
+}
+.mric-calc.v5 .mric-lm-fine{
+  font-size:11.5px;letter-spacing:0.04em;color:var(--fg-4);
+}
+
+/* Mobile (container query ≤ 720px) */
+@container (max-width: 720px){
+  .mric-calc.v5 .mric-wrap{padding:0 18px}
+  .mric-calc.v5 .mric-hero-logo{height:36px;margin-bottom:32px}
+  .mric-calc.v5 .mric-section{padding:8px 0 16px}
+  .mric-calc.v5 .mric-hero h1{font-size:26px;max-width:none;letter-spacing:-0.03em;margin-bottom:18px}
+  .mric-calc.v5 .mric-hero{padding:64px 0 16px}
+  .mric-calc.v5 .mric-pillars{display:none}
+  .mric-calc.v5 .mric-hero-pills{
+    display:flex;flex-direction:column;align-items:center;
+    gap:14px;
+    margin-top:28px;
+  }
+  .mric-calc.v5 .mric-hero h1 .accent{display:block}
+  .mric-calc.v5 .mric-lm-title{font-size:22px}
+  .mric-calc.v5 .mric-section-head{flex-direction:column;align-items:flex-start;margin-bottom:20px}
+  .mric-calc.v5 .mric-item{
+    grid-template-columns:48px 1fr auto;
+    gap:14px;
+    padding:18px 4px;
+  }
+  .mric-calc.v5 .mric-item-icon{width:48px;height:48px;flex:0 0 48px}
+  .mric-calc.v5 .mric-item-icon svg{width:28px;height:28px}
+  .mric-calc.v5 .mric-item-meta{display:none}
+  .mric-calc.v5 .mric-item-title{font-size:16px}
+  .mric-calc.v5 .mric-item-desc{font-size:13.5px}
+  .mric-calc.v5 .mric-lm-wrap{padding:64px 0 80px}
+  .mric-calc.v5 .mric-lm{padding:48px 0 40px}
+  .mric-calc.v5 .mric-lm-head{flex-direction:column;gap:12px}
+}
+</style>
+
+<div class="mric-calc v5 light">
+
+  <!-- HERO -->
+  <header class="mric-hero">
+    <div class="mric-wrap">
+      <img
+        class="mric-hero-logo"
+        src="https://moneyradar.org/lp4/wp-content/themes/astra-child/assets/images/moneyradar-logo.webp"
+        alt="MoneyRadar"
+      >
+      <h1>
+        Simulateurs &amp; Calculateurs <span class="accent">MoneyRadar</span>
+      </h1>
+      <p class="mric-hero-sub">
+        L'arsenal complet pour piloter votre argent comme un pro. Données officielles
+        INSEE, LFI&nbsp;2026, URSSAF, Eurostat. Aucune inscription, aucun tracking,
+        tout reste dans votre navigateur.
+      </p>
+      <div class="mric-hero-pills">
+        <div class="mric-hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 6-6"/></svg>
+          Gratuits
+        </div>
+        <div class="mric-hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 12v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/></svg>
+          Données officielles
+        </div>
+        <div class="mric-hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.3 8-8 9-4.7-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2.2 2.2L15 10.5"/></svg>
+          Aucun mail requis
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PILLARS (desktop only) -->
+  <div class="mric-wrap">
+    <div class="mric-pillars">
+      <div class="mric-pillar">
+        <div class="mric-pillar-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 6-6"/></svg>
+          Gratuits
+        </div>
+      </div>
+      <div class="mric-pillar">
+        <div class="mric-pillar-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 12v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/></svg>
+          Données officielles
+        </div>
+      </div>
+      <div class="mric-pillar">
+        <div class="mric-pillar-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.3 8-8 9-4.7-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2.2 2.2L15 10.5"/></svg>
+          Aucun mail requis
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GROUPED CALCULATORS -->
+  <section class="mric-section">
+    <div class="mric-wrap">
+      <div class="mric-section-head">
+        <div class="mric-section-head-l">
+          <h2>Par catégorie.</h2>
+        </div>
+      </div>
+      <div class="mric-grp">
+
+        <!-- PATRIMOINE -->
+        <div class="mric-grp-block" style="--cat-color:var(--purple)">
+          <div class="mric-grp-head">
+            <span class="mric-grp-label">Patrimoine</span>
+          </div>
+          <div class="mric-grp-list">
+
+            <a class="mric-item" href="https://moneyradar.org/simulateur-riche-pour-age/" target="_blank" rel="noopener" style="--cat-color:var(--purple)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="5" height="9"/><rect x="9.5" y="6" width="5" height="14"/><rect x="15.5" y="13" width="5" height="7"/><path d="M12 4l.7 1.4 1.5.2-1.1 1 .3 1.5-1.4-.7-1.4.7.3-1.5-1.1-1 1.5-.2L12 4z" fill="currentColor" stroke="none"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Êtes-vous riche pour votre âge&nbsp;?</span>
+                  <span class="mric-item-cat">Patrimoine</span>
+                </div>
+                <p class="mric-item-desc">Votre rang patrimonial parmi les Français de votre génération, données INSEE 2024.</p>
+              </div>
+              <div class="mric-item-meta">2 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+            <a class="mric-item" href="https://moneyradar.org/simulateur-inflation-vs-investissement/" target="_blank" rel="noopener" style="--cat-color:var(--purple)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v14"/><path d="M5 18l-2.5-2.5M5 18l2.5-2.5"/><path d="M19 20V6"/><path d="M19 6l-2.5 2.5M19 6l2.5 2.5"/><path d="M12 12h0" opacity=".4"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Inflation vs Investissement</span>
+                  <span class="mric-item-cat">Patrimoine</span>
+                </div>
+                <p class="mric-item-desc">Simulez l'érosion de votre épargne qui dort.</p>
+              </div>
+              <div class="mric-item-meta">2 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+            <a class="mric-item" href="https://moneyradar.org/simulateur-valeur-temps/" target="_blank" rel="noopener" style="--cat-color:var(--purple)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2.2"/><path d="M12 3.5v1.2M20.5 12h-1.2M12 20.5v-1.2M3.5 12h1.2" opacity=".55"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Valeur du temps</span>
+                  <span class="mric-item-cat">Patrimoine</span>
+                </div>
+                <p class="mric-item-desc">Combien vaut vraiment une heure de votre vie.</p>
+              </div>
+              <div class="mric-item-meta">2 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- FISCALITÉ -->
+        <div class="mric-grp-block" style="--cat-color:var(--gold)">
+          <div class="mric-grp-head">
+            <span class="mric-grp-label">Fiscalité</span>
+          </div>
+          <div class="mric-grp-list">
+
+            <a class="mric-item" href="https://moneyradar.org/simulateur-impots/" target="_blank" rel="noopener" style="--cat-color:var(--gold)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5V12L18 16.5"/><path d="M12 12L4 9" opacity=".5"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Où vont vraiment vos impôts&nbsp;?</span>
+                  <span class="mric-item-cat">Fiscalité</span>
+                </div>
+                <p class="mric-item-desc">Où va chaque euro versé à l'État et à la Sécu, du budget des retraites au coût de l'Élysée.</p>
+              </div>
+              <div class="mric-item-meta">4 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- INVESTISSEMENT -->
+        <div class="mric-grp-block" style="--cat-color:var(--blue)">
+          <div class="mric-grp-head">
+            <span class="mric-grp-label">Investissement</span>
+          </div>
+          <div class="mric-grp-list">
+
+            <a class="mric-item" href="https://moneyradar.org/guides/interets-composes/" target="_blank" rel="noopener" style="--cat-color:var(--blue)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M3 20V4" opacity=".4"/><path d="M3.5 19c2-.2 4-1.5 6-4.5s4-8 6.5-9.5"/><path d="M14 4h2.5V6.5"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Intérêts composés</span>
+                  <span class="mric-item-cat">Investissement</span>
+                </div>
+                <p class="mric-item-desc">Simulez la croissance de votre épargne sur 10, 20, 30 ans.</p>
+              </div>
+              <div class="mric-item-meta">3 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+            <a class="mric-item" href="https://moneyradar.org/simulateur-objectif-financier/" target="_blank" rel="noopener" style="--cat-color:var(--blue)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="13" r="7.5"/><circle cx="11" cy="13" r="4"/><circle cx="11" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M11 13l9-9"/><path d="M16 4h4v4" opacity=".55"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Objectif financier</span>
+                  <span class="mric-item-cat">Investissement</span>
+                </div>
+                <p class="mric-item-desc">Combien épargner par mois pour atteindre votre objectif.</p>
+              </div>
+              <div class="mric-item-meta">2 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+            <a class="mric-item" href="https://moneyradar.org/simulateur-liberte-financiere/" target="_blank" rel="noopener" style="--cat-color:var(--blue)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2-3 5-3 7-1 1.5 1.5 2 4 4.5 4"/><path d="M14.5 15c2.5 0 5-2 5-5 0-2-1.5-3-2.5-3"/><circle cx="17.5" cy="8" r="0.9" fill="currentColor" stroke="none"/><path d="M5 18c2-.5 4-.5 5 0" opacity=".4"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Liberté financière</span>
+                  <span class="mric-item-cat">Investissement</span>
+                </div>
+                <p class="mric-item-desc">Quand pourrez-vous vivre de vos placements.</p>
+              </div>
+              <div class="mric-item-meta">3 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- QUOTIDIEN -->
+        <div class="mric-grp-block" style="--cat-color:var(--teal)">
+          <div class="mric-grp-head">
+            <span class="mric-grp-label">Quotidien</span>
+          </div>
+          <div class="mric-grp-list">
+
+            <a class="mric-item" href="https://moneyradar.org/simulateur-runway/" target="_blank" rel="noopener" style="--cat-color:var(--teal)">
+              <div class="mric-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21L10 4"/><path d="M20 21L14 4"/><path d="M8.5 11h7"/><path d="M7.5 16h9" opacity=".55"/><path d="M9.5 7h5" opacity=".4"/></svg>
+              </div>
+              <div class="mric-item-body">
+                <div class="mric-item-head">
+                  <span class="mric-item-title">Runway financier</span>
+                  <span class="mric-item-cat">Quotidien</span>
+                </div>
+                <p class="mric-item-desc">Combien de temps tiendrez-vous sans salaire.</p>
+              </div>
+              <div class="mric-item-meta">2 min</div>
+              <div class="mric-item-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="mric-lm-wrap">
+    <div class="mric-wrap">
+      <div class="mric-lm">
+        <div class="mric-lm-head">
+          <div class="mric-lm-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M3 13h18"/><path d="M12 9v11"/><path d="M12 9c-2 0-4-1-4-3s2-3 4 0c2-3 4-2 4 0s-2 3-4 3z"/></svg>
+          </div>
+          <div class="mric-lm-title">
+            <span class="lm-tag">Cadeau&nbsp;:</span> <span class="lm-body">votre masterclass investissement offerte</span>
+          </div>
+        </div>
+        <p class="mric-lm-desc">
+          On vous offre <strong>45&nbsp;min de formation avec un stratégiste macro</strong>
+          + notre rapport <strong>Mégatendances 2026</strong> (PDF&nbsp;48&nbsp;pages).
+          Stratégies d'investissement, scénarios de marché, allocations modèles.
+        </p>
+        <div class="mric-lm-row">
+          <div class="mric-lm-embed">
+            <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+            <iframe src="https://subscribe-forms.beehiiv.com/6b4ebcf6-43b1-46fd-86b1-aca466483c43" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin:0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000;"></iframe>
+          </div>
+        </div>
+        <p class="mric-lm-fine">
+          100% gratuit · Vos données restent privées · Désabonnement en 1 clic
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+</div>
